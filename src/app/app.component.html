@@ -23,16 +23,14 @@
 
   <ng-template [ngIf]="currency && !errorMessage">
     <h2>Wynik</h2>
-      <h4 >Waluta: {{code.value}}</h4>
-      <p>Różnica kupna: {{currency.sumAsk}}</p>
-      <p>Różnica sprzedaży: {{currency.sumBid}}</p>
-
-
+      <h4 class="text-success">Waluta: {{code.value}}</h4>
+      <b><p class="text-info">Różnica kupna: {{currency.sumAsk}}</p>
+        <p class="text-primary">Różnica sprzedaży: {{currency.sumBid}}</p></b>
+    <br>
     <tr *ngFor="let c of currency.rates">
-      <p></p>
       <h3>data : {{c.effectiveDate}}</h3>
-      <p>Kurs kupno : {{c.ask}}</p>
-      <p>Kurs sprzedaż : {{c.bid}}</p>
+      <p class="text-info">Kurs kupno : {{c.ask}}</p>
+      <p class="text-primary">Kurs sprzedaż : {{c.bid}}</p>
       <br>
     </tr>
   </ng-template>
