@@ -1,0 +1,44 @@
+<div>
+  <h1>Porównywarka wartości walut</h1>
+  <h3>Witaj w aplikacji w której porównasz jak zmieniła się dana waluta w czasie!</h3>
+  <div >
+    <div>
+      <label>Lista walut</label>
+      <select #code>
+        <option [value]="rate.code" *ngFor="let rate of rateslist">
+          {{rate.currency}}</option>
+      </select>
+    </div>
+    <div>
+      <label>Data od:</label>
+      <input type="date" #data1>
+    </div>
+    <div>
+      <label>Data do:</label>
+      <input type="date" #data2>
+    </div>
+
+    <button type="submit" (click)="loadCurrency(data1.value, data2.value, code.value)">Sprawdź</button>
+  </div>
+
+  <ng-template [ngIf]="currency && !errorMessage">
+    <h2>Wynik</h2>
+      <h4 >Waluta: {{code.value}}</h4>
+      <p>Różnica kupna: {{currency.sumAsk}}</p>
+      <p>Różnica sprzedaży: {{currency.sumBid}}</p>
+
+
+    <tr *ngFor="let c of currency.rates">
+      <p></p>
+      <h3>data : {{c.effectiveDate}}</h3>
+      <p>Kurs kupno : {{c.ask}}</p>
+      <p>Kurs sprzedaż : {{c.bid}}</p>
+      <br>
+    </tr>
+  </ng-template>
+  <ng-template [ngIf]="errorMessage">
+    <h3>{{errorMessage}}</h3>
+  </ng-template>
+
+
+</div>
