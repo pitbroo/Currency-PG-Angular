@@ -3,22 +3,22 @@
   <h3>Witaj w aplikacji w której porównasz jak zmieniła się dana waluta w czasie!</h3>
   <div >
     <div>
-      <label>Lista walut</label>
-      <select #code>
+      <label>Lista walut  </label>
+      <select #code class="m-1 form-select form-select-lg mb-3">
         <option [value]="rate.code" *ngFor="let rate of rateslist">
           {{rate.currency}}</option>
       </select>
     </div>
     <div>
-      <label>Data od:</label>
-      <input type="date" #data1>
+      <label>Data od:   </label>
+      <input class="m-1 md-form md-outline input-with-post-icon datepicker" type="date" #data1>
     </div>
     <div>
-      <label>Data do:</label>
-      <input type="date" #data2>
+      <label>Data do:   </label>
+      <input class="m-1 md-form md-outline input-with-post-icon datepicker" type="date" #data2>
     </div>
 
-    <button type="submit" (click)="loadCurrency(data1.value, data2.value, code.value)">Sprawdź</button>
+    <button type="submit" class="btn btn-primary btn-lg" (click)="loadCurrency(data1.value, data2.value, code.value)">Sprawdź</button>
   </div>
 
   <ng-template [ngIf]="currency && !errorMessage">
